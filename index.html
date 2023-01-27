@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            max-width: 1500px;
+            width: 100%;
+            margin: 45px auto;
+        }
+
+        /* NAVIGATION BAR */
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        img {
+            width: 60px;
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        li {
+            margin-right: 30px;
+            list-style: none;
+            font-family: sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: black;
+        }
+
+        li:hover {
+            text-decoration: underline;
+            cursor: pointer;
+            color: #2BBEC3;
+        }
+
+
+        /* LANDING PAGE */
+
+        .landing-page {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            margin: 100px auto;
+        }
+        
+        span {
+            display: block;
+            font-family: sans-serif;
+            font-weight: 400;
+            font-size: 18px;
+            color: orange;
+        }
+
+        .title {
+            font-family: system-ui;
+            color: orange;
+            font-weight: 900;
+            font-size: 54px;
+            margin-top: 20px;
+        }
+
+        .text {
+            font-family: sans-serif;
+            color: #323459;
+            font-size: 18px;
+            padding-bottom: 20px;
+        }
+
+        .button {
+            font-family: system-ui;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 10px 50px;
+            margin-top: 20px;
+            background: orange;
+            color: white;
+            text-decoration: none;
+            border-radius: 11px;
+        }
+
+        .button:hover {
+            box-shadow: 0px 4px 4px rgba(59, 49, 100, 0.25);
+            cursor: pointer;
+        }
+
+        .img-wrapper {
+            position: relative;
+            padding: 30px 60px 50px;
+        }
+
+        .circle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 183px;
+            z-index: -2;
+        }
+
+        .shoe {
+            width: 450px;
+            border-radius: 22px;
+        }
+
+        .logo-nike {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body> 
+     <script>
+        let bodyEl = document.querySelector('body')
+        let navItems = ["Home", "About us", "FAQ", "Store" ];
+        let logInItems = ["Favorite", "Log in"]
+
+        // NAVIGATION BAR 
+
+        let headerEl = document.createElement('header')
+        bodyEl.appendChild(headerEl)
+  
+        let navEl = document.createElement('nav')
+        headerEl.appendChild(navEl)
+
+        let logoContainer = document.createElement('div')
+        logoContainer.classList.add('logo-container')
+        navEl.appendChild(logoContainer)
+
+        let headerLogo = document.createElement('img')
+        headerLogo.setAttribute("src", "images/nike.png")
+        logoContainer.appendChild(headerLogo)  
+
+        let navigationBar = document.createElement('div')
+        navigationBar.classList.add('navigation-bar')
+        navEl.appendChild(navigationBar)
+
+        let ulElement = document.createElement('ul');
+        navigationBar.appendChild(ulElement)
+
+        for (const navItem of navItems) {
+            let listItem = document.createElement('li');
+            let navAhref = document.createElement('a')
+            listItem.appendChild(navAhref)
+            navAhref.textContent = navItem;           
+            ulElement.appendChild(listItem);
+        }
+
+        let logInContainer = document.createElement('div')
+        logInContainer.classList.add('login')
+        navEl.appendChild(logInContainer)
+        let ulElement2 = document.createElement('ul');
+        logInContainer.appendChild(ulElement2);
+
+        for (const logInItem of logInItems) {
+            let listItem2 = document.createElement('li');
+            let loginAhref = document.createElement('a')
+            listItem2.appendChild(loginAhref);
+            loginAhref.textContent = logInItem;
+            ulElement2.appendChild(listItem2);
+        }
+
+        // LANDING PAGE
+
+        let landingPage = document.createElement('div')
+        let containerLeft = document.createElement('div')
+        let containerRight = document.createElement('div')
+        let imgWrapper = document.createElement('div')
+
+        bodyEl.appendChild(landingPage)
+        landingPage.appendChild(containerLeft)
+        landingPage.appendChild(containerRight)
+        containerRight.appendChild(imgWrapper);
+
+        landingPage.classList.add('landing-page')
+        containerLeft.classList.add('container-left')
+        containerRight.classList.add('container-right')
+        imgWrapper.classList.add('img-wrapper')
+
+        let landingPageLabel = document.createElement('span')
+        landingPageLabel.classList.add('label')
+        let labelText = "Nieuw jaar, nieuw collectie!"
+        containerLeft.appendChild(landingPageLabel)
+        document.querySelector('.label').innerHTML = "Nieuw jaar, nieuw collectie!"
+
+        let landingPageTitle = document.createElement('h1')
+        landingPageTitle.classList.add('title')
+        containerLeft.appendChild(landingPageTitle)
+        document.querySelector(".title").innerHTML = "De nieuwe Vapor Fly, meer comfort. Meer stevigheid."
+
+        let landingPagePara = document.createElement('p')
+        landingPagePara.classList.add('text')
+        containerLeft.appendChild(landingPagePara)
+        document.querySelector('.text').innerHTML = "Zet de evolutie van snelheid voort met een wedstrijdschoen die is gemaakt om nieuwe doelen na te jagen en records te breken. De schoen verbetert het comfort en de ventilatie met een vernieuwd bovenwerk. Of je nu 10 kilometer of een marathon loopt, dit model biedt, net als de eerdere versie, de responsieve demping, de stevigheid en de ondersteuning waarmee je records kunt verbreken."
+
+        let landingPageBtn = document.createElement('a')
+        landingPageBtn.classList.add('button')
+        containerLeft.appendChild(landingPageBtn)
+        document.querySelector('.button').innerHTML = "Shop nu"
+
+        let circle = document.createElement('img')
+        circle.setAttribute("src", "images/circle.svg")
+        circle.classList.add('circle')
+        imgWrapper.appendChild(circle)
+
+        let shoe = document.createElement('img')
+        shoe.setAttribute("src", "images/vaporfly.jpg")
+        shoe.classList.add('shoe')
+        imgWrapper.appendChild(shoe)
+
+        let nikeLogo = document.createElement('img')
+        nikeLogo.setAttribute("src", "images/Logo_NIKE.svg")
+        nikeLogo.classList.add('logo-nike')
+        imgWrapper.appendChild(nikeLogo);
+    </script>
+</body>
+</html>
